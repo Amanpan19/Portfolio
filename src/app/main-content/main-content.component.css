@@ -48,33 +48,6 @@
 .menu-btn{cursor: pointer;padding-top: 10px;
         color:white; font-size: 25px;display: none;}
 
-.scroll-up-btn{
-          position: fixed;
-          height: 45px;
-          width: 42px;
-          background: crimson;
-          right: 30px;
-          bottom: 10px;
-          text-align: center;
-          line-height: 45px;
-          color: #fff;
-          z-index: 9999;
-          font-size: 30px;
-          border-radius: 6px;
-          border-bottom-width: 2px;
-          cursor: pointer;
-          opacity: 0;
-          pointer-events: none;
-          transition: all 0.3s ease;
-      }
-.scroll-up-btn.show{
-          bottom: 30px;
-          opacity: 1;
-          pointer-events: auto;
-      }
-.scroll-up-btn:hover{
-          filter: brightness(90%);
-      }
  a{
     text-decoration: none;
  }     
@@ -158,9 +131,8 @@ a.background-button {
   h2{color: white;}
   .about, .project, .contact{font-family: cursive;}
   
-  .about .about-content,
-  .project .pro-content,
-  .contact .contact-content{
+  .about .about-content
+  {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -303,60 +275,6 @@ a.background-button {
   }
   
   
-  
-  /*skill styling*/
-  
-  .project{
-    color: aliceblue;
-    background:linear-gradient(to left, rgb(103, 110, 245),rgb(198, 37, 238))
-  }
-  
-  .project .title::after{
-    content:"What I Did";
-    background: #d42e2e;
-    
-    }
-
-  .pro-content .card{
-    margin-bottom: 20px;
-  }
-    .project .pro-content .card{
-      
-      width: calc(43% - 20px);
-      background: #222;
-      text-align: center;
-      border-radius: 6px;
-      padding: 30px 35px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-  }
-  
-  .project .pro-content .card:hover{
-      background: crimson;
-  }
-  .project .pro-content .card .box{
-      transition: all 0.3s ease;
-  }
-  .project .pro-content .card:hover .box{
-      transform: scale(1.05);
-  }
-  .project .pro-content .card i{
-      font-size: 50px;
-      color: crimson;
-      transition: color 0.3s ease;
-  }
-  .project .pro-content .card:hover i{
-      color:#fff;
-  }
-  .project .pro-content .card .text{
-      font-size: 25px;
-      font-weight: 500;
-      margin: 10px 0 6px 0;
-      line-height:43px;
-  }
-  
- 
-  
   /*certificate*/
 
   .certi{
@@ -434,10 +352,7 @@ a.background-button {
   .about .about-content .right{
     flex: 100%;
   }
-  .project .pro-content .card{
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
-  }
+ 
 
 
   .home .man{width:30%;height:50%;right: 90px;
@@ -479,8 +394,6 @@ a.background-button {
       font-size: 23px;
       line-height: 38px;  }
   
-  .project .pro-content .card{
-        width: 100%;}
   }
   
   @media(max-width:500px){
@@ -489,13 +402,6 @@ a.background-button {
         font-size: 14px;
     }  
   
-    .contact .right form .fields{
-      flex-direction: column;
-  }
-  .contact .right form .name,
-  .contact .right form .email{
-      margin: 0;
-  }
   .right form .error-box{
      width: 150px;
   }

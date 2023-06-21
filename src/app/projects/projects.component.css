@@ -1,0 +1,98 @@
+  /*Projects styling*/
+
+   section{
+    padding: 80px 0;
+   }
+
+   section .title{text-align: center;
+    position: relative;
+    font-size: 25px;  color: azure;
+    margin-bottom: 60px;padding-bottom: 20px;}
+  
+  section .title::before{
+  content:"";
+  bottom: 0px;
+  left: 50%;
+  position: absolute;
+  width: 200px;
+  height:3px;
+  background: #f9f924;
+  transform: translateX(-50%);
+  }
+  
+  section .title::after{
+    
+    bottom: -12px;
+    left: 50%;
+    position: absolute;
+    font-size: 20px;
+    padding: 0 10px;
+    
+    transform: translateX(-50%);
+    }
+
+   .project .pro-content{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .project{font-family: cursive;}
+  
+  .project{
+    color: aliceblue;
+    background:linear-gradient(to left, rgb(103, 110, 245),rgb(198, 37, 238))
+  }
+  
+  .project .title::after{
+    content:"What I Did";
+    background: #d42e2e;
+    
+    }
+
+  .pro-content .card{
+    margin-bottom: 20px;
+  }
+    .project .pro-content .card{
+      
+      width: calc(42% - 20px);
+      background: #222;
+      text-align: center;
+      border-radius: 6px;
+      padding: 30px 35px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+  }
+  
+  .project .pro-content .card:hover{
+      background: crimson;
+  }
+  .project .pro-content .card .box{
+      transition: all 0.3s ease;
+  }
+  .project .pro-content .card:hover .box{
+      transform: scale(1.05);
+  }
+  .project .pro-content .card i{
+      font-size: 50px;
+      color: crimson;
+      transition: color 0.3s ease;
+  }
+  .project .pro-content .card:hover i{
+      color:#fff;
+  }
+  .project .pro-content .card .text{
+      font-size: 25px;
+      font-weight: 500;
+      margin: 10px 0 6px 0;
+      line-height:43px;
+  }
+@media(max-width:1009px){
+
+    .project .pro-content .card{
+        width: 100%;}
+}
+
+
