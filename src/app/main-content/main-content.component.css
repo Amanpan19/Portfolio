@@ -45,8 +45,15 @@
 .navbar .menu li{list-style: none;display: inline-block;padding-top: 10px;}
 
 
-.menu-btn{cursor: pointer;padding-top: 10px;
-        color:white; font-size: 25px;display: none;}
+label #btn,label #cancel{
+  color: white;
+  float: right;
+  display: none;
+}
+
+#check{
+  display: none;
+}
 
  a{
     text-decoration: none;
@@ -326,16 +333,46 @@ a.background-button {
   .navbar .menu{position: fixed;
           width:100%;
           height:100vh;
-          left:-100%;top: 0;
+          left:-120%;top: -20px;
           background:linear-gradient(to top, #222831,#1b2029,#0092ca);text-align: center;
          padding-top: 80px;transition: all 0.3s ease;}
   
   
   .navbar .menu.active{left:0;}
-  .menu-btn i.active:before{
-      content: "\f00d";
-    }
-  .menu-btn{z-index:999;display: block}
+
+  label #btn{
+    display: block;
+    
+}
+  
+  .checkbtn{
+    display: block;
+    position: relative;
+    right: 3%;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+#check:checked ~ ul{
+  left:-50%;
+  z-index: 20;
+}
+label+ul li{
+ position: relative;
+  display: block;
+  margin: 50px 0 0 46%;
+}
+
+#check:checked ~ label #btn{
+  display: none;
+}
+#check:checked ~ label #cancel{
+  display:block;
+}
+
+#check:checked #userlist{
+  left:-80%;
+}
   .navbar .menu li{display:block;}
   .navbar .menu li a{display: inline-block;margin:20px 0;font-size: 22px;}
   body::-webkit-scrollbar{display: none;}

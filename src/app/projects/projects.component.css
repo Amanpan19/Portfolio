@@ -38,7 +38,7 @@
       justify-content: space-between;
   }
 
-  .project{font-family: cursive;}
+  .project{font-family: cursive; line-height: 40px;}
   
   .project{
     color: aliceblue;
@@ -93,6 +93,13 @@
 
     .project .pro-content .card{
         width: 100%;}
+}
+
+@media (max-width:550px) {
+    p,.text{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
 }
 
 
