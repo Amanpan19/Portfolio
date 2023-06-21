@@ -1,0 +1,15 @@
+  /* footer section styling */
+  footer{
+    background: #111;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+  }
+  footer span a{
+    font-family:font4;
+    color: crimson;
+    text-decoration: none;
+  }
+  footer span a:hover{
+    text-decoration: underline;
+  }
