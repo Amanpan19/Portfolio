@@ -439,6 +439,10 @@ label+ul li{
         font-size: 14px;
     }  
   
+  .about{
+    font-family: Arial, Helvetica, sans-serif;
+  }  
+  
   .right form .error-box{
      width: 150px;
   }
@@ -457,6 +461,15 @@ label+ul li{
     margin: 0px;
   padding-top: 150px;}
   
+  }
+  @media (max-width:420px) {
+
+    .background-button{
+     margin-left: -50px;}
+     .home-content{
+      margin-left: -20px;
+     }
+    
   }
   @media (max-width:350px) {
     .button-wrapper {
