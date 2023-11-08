@@ -11,8 +11,9 @@
     src: url(../../assets/GearsOfPeace.ttf);
   }
   @font-face{
-    font-family:front3;
-    src :url(../../assets/ConcertOne-Regular.ttf)}
+    font-family:font3;
+    src :url(../../assets/ConcertOne-Regular.ttf)
+  }
   
   @font-face{
     font-family: font4;
@@ -63,7 +64,7 @@ label #btn,label #cancel{
 .home{display:flex;background: linear-gradient(109.6deg, rgb(42, 109, 197) 32.4%, #a03bde 98.8%);
   color:white;width:100%;overflow: hidden;
   height:100vh;flex-wrap: wrap;
-  font-family: front3;min-height: 500px;}
+  font-family: font3;min-height: 500px;}
 .home .man{width: 28%;
 height: 65%;
 position: absolute;
@@ -72,10 +73,10 @@ right: 130px;}
 
 .home .shape{width: 30%;height: 70%;position: absolute;bottom:80px;right: 100px;}
 .home .max-width{margin: auto 0 auto 50px;}
-.home .home-content h3{font-size: 25px;padding-bottom: 15px;text-align: left;}
+/* .home .home-content h3{font-size: 25px;padding-bottom: 15px;text-align: left;} */
 .home .home-content h1{font-family: font4;
                          font-size: 35px;margin-left: -3px;}
-.home .home-content h2{font-size: 30px;padding-top: 15px;text-align: left;}
+.home .home-content h2{font-size: 25px;padding-top: 15px;text-align: left; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
 .home .home-content h2 span{color:yellow ;}
 
 
@@ -85,7 +86,7 @@ width: 100%;
 padding-top: 25.92%;
 display: block;
 background-size: 100% 100%;
-font-family: 'front3';
+font-family: 'font3';
 font-size: 28px;
 margin-bottom: 20px;
 text-decoration: none;
@@ -218,7 +219,8 @@ a.background-button {
     background-color: crimson;border-radius: 3px;margin-top: 20px;
   }
   .about .downl a:hover{
-    background: none;color: crimson;
+    background: none;color: rgb(247, 239, 241);
+    border: 2px solid white;
     transition: 0.5s ease;
   }
   
@@ -379,10 +381,11 @@ label+ul li{
   .navbar .menu li{display:block;}
   .navbar .menu li a{display: inline-block;margin:20px 0;font-size: 22px;}
   body::-webkit-scrollbar{display: none;}
+
   .home .home-content .text-1{font-size: 25px;padding-bottom: 15px;}
-  .home .home-content .text-2{font-family: font4;
-                               font-size: 30px;margin-left: -3px;}
+  .home .home-content .text-2{font-family: font4;font-size: 30px;margin-left: -3px;}
   .home .home-content .text-3{font-size: 25px;padding-top: 15px;}
+
   .about .about-content .column{
     width: 100%;
   }
