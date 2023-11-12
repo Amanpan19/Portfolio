@@ -1,3 +1,4 @@
+![Screenshot 2023-08-22 110705](https://github.com/Amanpan19/Portfolio/assets/120437937/0223e647-4fa1-438e-896f-1afda9d12858)
 # Potfolio
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
