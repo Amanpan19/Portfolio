@@ -1,8 +1,13 @@
   /*Projects styling*/
 
+  @font-face{
+    font-family:font7;
+    src :url(../../assets/F25_Bank_Printer_Bold.ttf)
+  }
 
   section {
     padding: 20px 10px;
+  background-color: #080808;
   }
 
   section .title {
@@ -60,7 +65,7 @@
   }
 
   .project .title::after {
-    content: "Projects";
+    content: "Discover My Creative Expertise";
     background: #d42e2e;
     border-radius: 7px;
   }
@@ -85,7 +90,7 @@
   }
 
   img {
-    width: 100%;
+    width: 98%;
     height: 2%;
     margin-top: 20px;
     border-radius: 8px;
@@ -115,8 +120,9 @@
     }
   }
 
+ 
   .project .pro-content .card .box {
-    transition: all 0.4s ease;
+    transition: all 0.4s ease-in-out;
   }
 
   .project .pro-content .card:hover .box {
@@ -170,3 +176,5 @@
     }
 
   }
+
+  

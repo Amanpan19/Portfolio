@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { CursorService } from './cursor.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Potfolio';
+  title = 'Portfolio';
+  constructor(private ballService: CursorService) {}
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    this.ballService.updateBallPosition(event.clientY, event.clientX);
+  }
 }

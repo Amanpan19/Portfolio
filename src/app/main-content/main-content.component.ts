@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import Typed from 'typed.js';
 
 @Component({
@@ -7,6 +7,9 @@ import Typed from 'typed.js';
   styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent implements OnInit {
+
+  constructor(private renderer: Renderer2, private el: ElementRef){}
+
   ngOnInit(): void {
      const typed = new Typed('.typing',{      
                     //.typing is a target element // we, need to install Typed class from typed.js library
@@ -27,6 +30,27 @@ export class MainContentComponent implements OnInit {
       }
     });
   });
-  } 
+
+  const aboutSection = this.el.nativeElement.querySelector('.about');
+  const textElements = this.el.nativeElement.querySelectorAll('.text, .about-content p');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        this.renderer.addClass(entry.target, 'visible');
+      } else {
+        this.renderer.removeClass(entry.target, 'visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Observe the main about section
+  observer.observe(aboutSection);
+
+  // Observe individual text elements
+  textElements.forEach((element: any) => {
+    observer.observe(element);
+  });
+}
 
 }

@@ -1,0 +1,9 @@
+.ball {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: top 0.1s ease, left 0.1s ease;
+  }

@@ -24,24 +24,28 @@
     src: url(../../assets/Mortina.otf);
   }
   
-
+  @font-face {
+    font-family:font7;
+    src: url(../../assets/F25_Bank_Printer_Bold.ttf);
+  }
+  
 
 
 .navbar{position: fixed;width: 100%;padding:30px 0;
     /*background: linear-gradient( to left,#455d7a,#6643b5,#430f58);*/
     transition:all 0.3s ease;z-index: 2;
      }
-.navbar.sticky{background: linear-gradient( to right,rgb(149, 54, 226),#915ce6,#7827cf);
+.navbar.sticky{background: linear-gradient( to right,rgb(224, 147, 99),#f19c32,#eb5b19);
                padding: 15px 0;box-shadow: 0px 15px 50px -15px #393939;}
 .navbar .max-width{display: flex;align-content:center;justify-content: space-between;}
 .max-width{max-width:1300px;padding: 0 80px;margin: auto;}
 
 .navbar .logo a{font-size:35px;font-family: myfont2;color: yellow;}  
 .navbar .logo span{color: white;}    
-.navbar .menu li a{font-family:cursive;color: white;
+.navbar .menu li a{font-family:font7;color: white;
                 margin-left: 25px;
                 font-weight: 600;transition:color 0.3s ease;}
-.navbar .menu li a:hover{color:#3baea0;}
+.navbar .menu li a:hover{color:yellow;}
 .navbar.sticky .menu li a:hover{color:yellow;}
 .navbar .menu li{list-style: none;display: inline-block;padding-top: 10px;}
 
@@ -61,7 +65,7 @@ label #btn,label #cancel{
  }     
       
 
-.home{display:flex;background: linear-gradient(109.6deg, rgb(42, 109, 197) 32.4%, #a03bde 98.8%);
+.home{display:flex;background: linear-gradient(109.6deg, rgb(244, 138, 89) 32.4%, #f1862e 98.8%);
   color:white;width:100%;overflow: hidden;
   height:100vh;flex-wrap: wrap;
   font-family: font3;min-height: 500px;}
@@ -76,7 +80,8 @@ right: 130px;}
 /* .home .home-content h3{font-size: 25px;padding-bottom: 15px;text-align: left;} */
 .home .home-content h1{font-family: font4;
                          font-size: 35px;margin-left: -3px;}
-.home .home-content h2{font-size: 25px;padding-top: 15px;text-align: left; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+.home .home-content h2{font-size: 25px;padding-top: 15px;text-align: left; 
+  font-family:font7;}
 .home .home-content h2 span{color:yellow ;}
 
 
@@ -86,7 +91,7 @@ width: 100%;
 padding-top: 25.92%;
 display: block;
 background-size: 100% 100%;
-font-family: 'font3';
+font-family: font7;
 font-size: 28px;
 margin-bottom: 20px;
 text-decoration: none;
@@ -138,9 +143,7 @@ a.background-button {
   }
   h2{color: white;}
   .contact{font-family: cursive;}
-  .about{
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+  .about{font-family: font7;}
   .about .about-content
   {
       display: flex;
@@ -150,7 +153,7 @@ a.background-button {
   }
   section .title{text-align: center;
     position: relative;
-    font-size: 25px;  color: azure;
+    font-size: 25px;  color: rgb(248, 248, 9);
     margin-bottom: 60px;padding-bottom: 20px;}
   
   section .title::before{
@@ -178,16 +181,18 @@ a.background-button {
     /*about section styling*/
   
   .about{
-    background-image: url(../../assets/bg.svg);
+    background: linear-gradient(109.6deg, rgb(244, 138, 89) 32.4%, #f1862e 98.8%);
     background-repeat: no-repeat;
     background-size: cover;
-    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
-  .about .title::after{
-      content:"Who I am";
-      background: #c735e8;
-      border-radius: 8px;
-      }
+
+  .about.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   .about .about-content .left{
         width: 45%;
@@ -198,11 +203,32 @@ a.background-button {
   .about .about-content .right .text{
       margin-bottom: 10px; padding-bottom: 20px;
       font-weight: 600;
+      font-family: font7;
     }
-  .about p{
-    padding-bottom:20px;line-height:40px;
-  }
-  .about .about-content .right p{ text-align: justify;}
+
+    .text, .about-content p {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      padding-bottom:20px;
+      line-height:40px;
+      font-family:cursive;
+    }
+    
+    .text.visible, .about-content p.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .text {
+      transition-delay: 0.3s; /* Delay for the text animation */
+      font-size: 25px;
+     }
+    
+    
+    .about-content p {
+      transition-delay: 0.5s; /* Delay for the paragraph */
+    }
   
   .about .about-content{color: aliceblue;
       display: flex;align-items: center;
@@ -213,10 +239,18 @@ a.background-button {
     height: 560px;width: 490px; border-radius: 2rem;object-fit: cover;
   }
   
-  .about .downl a{display: inline-block;
-    width:190px;height: 40px;color: white;font-size: 25px;
-     border:2px solid crimson;text-align: center;padding:13px 16px;
-    background-color: crimson;border-radius: 3px;margin-top: 20px;
+  .about .downl a{
+    display: inline-block;
+    width:190px;
+    height: 40px;
+    color: white;
+    font-size: 25px;
+    border:2px solid crimson;
+    text-align: center;
+    padding:13px 16px;
+    background-color: crimson;
+    border-radius: 3px;
+    margin-top: 20px;
   }
   .about .downl a:hover{
     background: none;color: rgb(247, 239, 241);
@@ -338,16 +372,20 @@ a.background-button {
   .navbar .menu{position: fixed;
           width:100%;
           height:100vh;
-          left:-120%;top: -20px;
-          background:linear-gradient(to top, #222831,#1b2029,#0092ca);text-align: center;
-         padding-top: 80px;transition: all 0.3s ease;}
+          left:-120%;top: -15px;
+          background:linear-gradient(to top, #223031,#2c5ab1,#0092ca);text-align: center;
+          transition: all 0.3s ease
+          ;}
   
+  .navbar .menu .ul li a{
+    padding: 20px;
+    color: yellow;
+  }
   
   .navbar .menu.active{left:0;}
 
   label #btn{
     display: block;
-    
 }
   
   .checkbtn{

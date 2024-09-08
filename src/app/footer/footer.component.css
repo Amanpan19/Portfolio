@@ -1,15 +1,33 @@
   /* footer section styling */
+  @font-face{
+    font-family:font7;
+    src :url(../../assets/F25_Bank_Printer_Bold.ttf)
+  }
+
   footer{
     background: #111;
     padding: 15px 23px;
     color: #fff;
     text-align: center;
+    font-family:font7 ;
   }
+
   footer span a{
     font-family:font4;
     color: crimson;
     text-decoration: none;
   }
+
+  .left{
+    position: absolute;
+    left:10%;
+  }
+
+  .right{
+    position: absolute;
+    right:10%;
+  }
+
   footer span a:hover{
     text-decoration: underline;
   }
