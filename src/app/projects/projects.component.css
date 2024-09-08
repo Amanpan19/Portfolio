@@ -108,16 +108,18 @@
 
   .project .pro-content .card:hover {
     background: linear-gradient(rgb(221, 168, 8), rgb(228, 224, 4));
-
-    .text,p,ol{
-      color: white;
-    }
-
-    .tech{
-      color: #f40950;
-    }
-
   }
+  
+  .project .pro-content .card:hover .text,
+  .project .pro-content .card:hover p,
+  .project .pro-content .card:hover ol {
+    color: white;
+  }
+  
+  .project .pro-content .card:hover .tech {
+    color: #f40950;
+  }
+  
  
   .project .pro-content .card .box {
     transition: all 0.4s ease-in-out;
