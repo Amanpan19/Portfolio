@@ -108,14 +108,15 @@
 
   .project .pro-content .card:hover {
     background: linear-gradient(rgb(221, 168, 8), rgb(228, 224, 4));
-  }
 
-  .project .pro-content .card .tech:hover{
-    color: #f40950;
-  }
+    .text,p,ol{
+      color: white;
+    }
 
-  .project .pro-content .card .text,p,ol:hover{
-    color: white;
+    .tech{
+      color: #f40950;
+    }
+
   }
  
   .project .pro-content .card .box {
@@ -124,6 +125,10 @@
 
   .project .pro-content .card:hover .box {
     transform: scale(1.04);
+  }
+
+  .info{
+    color: black;
   }
 
   .project .pro-content .card:hover a {
