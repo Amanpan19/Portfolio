@@ -1,1 +1,28 @@
 
+@font-face {
+    font-family:font2;
+    src: url(../assets/novirus.ttf);
+}
+  @font-face {
+    font-family: myfont2;
+    src: url(../assets/GearsOfPeace.ttf);
+  }
+  @font-face{
+    font-family:font3;
+    src :url(../assets/ConcertOne-Regular.ttf)
+  }
+  
+  @font-face{
+    font-family: font4;
+    src: url(../assets/ethnocentric.otf) format('opentype');}
+  
+  @font-face {
+    font-family:font6;
+    src: url(../assets/Mortina.otf);
+  }
+  
+  @font-face {
+    font-family:font7;
+    src: url(../assets/F25_Bank_Printer_Bold.ttf);
+  }
+  
