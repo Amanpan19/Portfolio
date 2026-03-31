@@ -1,33 +1,60 @@
-  /* footer section styling */
-  @font-face{
-    font-family:font7;
-    src :url(../../assets/F25_Bank_Printer_Bold.ttf)
-  }
+footer {
+  background: #111;
+  color: #fff;
+  font-family: font7;
 
-  footer{
-    background: #111;
-    padding: 15px 23px;
-    color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 40px;
+  font-size: 14px;
+  border-top: 1px solid #222;
+}
+
+/* equal spacing */
+footer span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* center text properly */
+footer span:nth-child(2) {
+  justify-content: center;
+  flex: 1;
+}
+
+/* left and right stay compact */
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+/* link styling */
+footer a {
+  color: crimson;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: font7;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    gap: 10px;
     text-align: center;
-    font-family:font7 ;
+    padding: 20px;
   }
 
-  footer span a{
-    font-family:font4;
-    color: crimson;
-    text-decoration: none;
+  footer span {
+    justify-content: center !important;
   }
-
-  .left{
-    position: absolute;
-    left:10%;
-  }
-
-  .right{
-    position: absolute;
-    right:10%;
-  }
-
-  footer span a:hover{
-    text-decoration: underline;
-  }
+}
