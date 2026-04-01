@@ -1,44 +1,30 @@
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
-
-
-@font-face {
-    font-family:font2;
-    src: url(../../assets/novirus.ttf);
-  }
-  @font-face {
-    font-family: myfont2;
-    src: url(../../assets/GearsOfPeace.ttf);
-  }
-  @font-face{
-    font-family:font3;
-    src :url(../../assets/ConcertOne-Regular.ttf)
-  }
   
-  @font-face{
-    font-family: font4;
-    src: url(../../assets/ethnocentric.otf) format('opentype');}
-  
-  @font-face {
-    font-family:font6;
-    src: url(../../assets/Mortina.otf);
-  }
-  
-  @font-face {
-    font-family:font7;
-    src: url(../../assets/F25_Bank_Printer_Bold.ttf);
-  }
-  
-
+html, body {
+  overflow-x: hidden;
+}
 
 .navbar{position: fixed;width: 100%;padding:30px 0;
     /*background: linear-gradient( to left,#455d7a,#6643b5,#430f58);*/
     transition:all 0.3s ease;z-index: 2;
      }
-.navbar.sticky{background: linear-gradient( to right,rgb(224, 147, 99),#f19c32,#eb5b19);
-               padding: 15px 0;box-shadow: 0px 15px 50px -15px #393939;}
-.navbar .max-width{display: flex;align-content:center;justify-content: space-between;}
-.max-width{max-width:1300px;padding: 0 80px;margin: auto;}
+.navbar.sticky{
+  background: linear-gradient( to right,rgb(224, 147, 99),#f19c32,#eb5b19);
+  padding: 15px 0;
+  box-shadow: 0px 15px 50px -15px #393939;
+}
+.navbar .max-width{
+  display: flex;
+  align-content:center;
+  justify-content: space-between;
+}
+
+.max-width {
+  max-width:1300px;
+  padding: 0 80px;
+  margin: auto;
+}
 
 .navbar .logo a{font-size:35px;font-family: myfont2;color: yellow;}  
 .navbar .logo span{color: white;}    
@@ -65,18 +51,38 @@ label #btn,label #cancel{
  }     
       
 
-.home{display:flex;background: linear-gradient(109.6deg, rgb(244, 138, 89) 32.4%, #f1862e 98.8%);
-  color:white;width:100%;overflow: hidden;
-  height:100vh;flex-wrap: wrap;
-  font-family: font3;min-height: 500px;}
-.home .man{width: 28%;
-height: 65%;
-position: absolute;
-bottom:80px;
-right: 130px;}
+.home{
+  display:flex;
+  background: linear-gradient(109.6deg, rgb(244, 138, 89) 32.4%, #f1862e 98.8%);
+  color:white;
+  width:100%;
+  overflow: hidden;
+  height:100vh;
+  flex-wrap: wrap;
+  font-family: font3;
+  min-height: 500px;
+}
 
-.home .shape{width: 30%;height: 70%;position: absolute;bottom:80px;right: 100px;}
-.home .max-width{margin: auto 0 auto 50px;}
+.home .man{
+  width: 28%;
+  height: 65%;
+  position: absolute;
+  bottom:80px;
+  right: 130px;
+}
+
+.home .shape{
+  width: 30%;
+  height: 70%;
+  position: absolute;
+  bottom:80px;
+  right: 100px;
+}
+
+.home .max-width{
+  margin: auto 0 auto 50px;
+}
+
 /* .home .home-content h3{font-size: 25px;padding-bottom: 15px;text-align: left;} */
 .home .home-content h1{font-family: font4;
                          font-size: 35px;margin-left: -3px;}
@@ -128,16 +134,15 @@ a.background-button {
     width: 355px;
     display: inline-block;
     margin: 20px;
-  padding-top: 150px;}
+    padding-top: 150px;
+  }
   
     .button-wrapper::nth-child(2) {
       -webkit-filter: hue-rotate(180deg);
       filter: hue-rotate(180deg);
     }
   
-  
-  
-  
+
   section{
     padding:80px 0;
   }
@@ -181,7 +186,7 @@ a.background-button {
     /*about section styling*/
   
   .about{
-    background: linear-gradient(109.6deg, rgb(244, 138, 89) 32.4%, #f1862e 98.8%);
+    background: linear-gradient(109.6deg, rgb(255, 255, 255) 32.4%, #f4eae4 98.8%);
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0;
@@ -212,7 +217,10 @@ a.background-button {
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
       padding-bottom:20px;
       line-height:40px;
-      font-family:cursive;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.04rem;
+      color: orange;
     }
     
     .text.visible, .about-content p.visible {
@@ -268,10 +276,11 @@ a.background-button {
   
   
   .social-container {
-    width: 400px;
-    margin:10px auto;
-    text-align: center;
-  }
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+  text-align: center;
+}
   
   .social-icons {
     padding: 0;
@@ -406,10 +415,9 @@ a.background-button {
   left:-50%;
   z-index: 20;
 }
-label+ul li{
- position: relative;
-  display: block;
-  margin: 50px 0 0 46%;
+label+ul li {
+  margin: 20px 0;
+  text-align: center;
 }
 
 #check:checked ~ label #btn{
@@ -439,12 +447,12 @@ label+ul li{
   .about .about-content .right{
     flex: 100%;
   }
- 
 
-
-  .home .man{width:30%;height:50%;right: 90px;
-    }
-   
+  .home .man{
+    width:30%;
+    height:50%;
+    right: 90px;
+  }
   
   }
   @media(max-width:890px) {
