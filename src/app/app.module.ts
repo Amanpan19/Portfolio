@@ -7,6 +7,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { BallComponent } from './ball/ball.component';
+import { SkillsComponent } from './skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BallComponent } from './ball/ball.component';
     MainContentComponent,
     FooterComponent,
     ProjectsComponent,
-    BallComponent
+    BallComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
