@@ -1,90 +1,103 @@
-<div appCursorFollow>
 <section class="project" id="project">
-    <div class="max-width">
-      <h2 class="title">Projects</h2>
-      <div class="pro-content">
+  <div class="max-width">
 
-        <div class="card">
-            <div class="box">
-              <i class="fas fa-chart-line"></i>
-              <div class="text">Food Ordering Application</div>
-              <img src="assets/foodie.png" alt="">
-              <p>It is a food Ordering website, From here user can Order food Online from his favourite restraunt. For More Details view code on GitHub.
-              </p>
-              <p style="font-size: 14px;"><span class="tech">Technology Used :</span> HTML5, CSS3, Typescript, Angular, MySql, MongoDB, Java, SpringBoot..etc.</p>
-              <a href="https://github.com/Amanpan19/Foodie_WebAppFront">View Code</a>
+    <h2 class="title"></h2>
+
+    <!-- 3D Stage -->
+    <div class="stage-wrap">
+      <div class="stage">
+
+        <div
+          *ngFor="let state of cardStates; trackBy: trackByIndex"
+          class="fan-card"
+          [class.fan-card--active]="state.isActive"
+          [ngStyle]="getCardStyle(state.offset)"
+          (click)="state.offset !== 0 && goTo(state.index)"
+        >
+          <!-- Image -->
+          <div class="fc-image-wrap" *ngIf="state.project.image">
+            <img [src]="state.project.image" [alt]="state.project.title" class="fc-img" />
+          </div>
+          <div class="fc-no-img" *ngIf="!state.project.image">
+            <i class="fas fa-cogs"></i>
+          </div>
+
+          <!-- Content (only fully shown on active) -->
+          <div class="fc-body">
+            <div class="fc-meta" *ngIf="state.isActive">
+              <span class="fc-tag" *ngFor="let t of getTechList(state.project.tech).slice(0,3)">{{ t }}</span>
             </div>
-          </div>
+            <h3 class="fc-title">{{ state.project.title }}</h3>
+            <p class="fc-desc" *ngIf="state.isActive">{{ state.project.description }}</p>
 
-          <div class="card">
-            <div class="box">
-              <i class="fas fa-chart-line"></i>
-              <div class="text">Weather Application</div>
-              <img src="assets/weather.png" alt="">
-              <p>This is a real-time weather application that enables users
-                to promptly access precise weather information for their
-                city.For More Details view code on GitHub</p>
-              
-              <p style="font-size: 14px;"><span class="tech">Technology Used :</span> HTML5, CSS3, Typescript, Angular, OpenAPI</p>
-              <a href="https://amanpan19.github.io/weatherApplication/ "> Explore </a> 
-              &nbsp; &nbsp;<a href="https://github.com/Amanpan19/weatherApplication" >View Code</a>
+            <ul class="fc-bullets" *ngIf="state.isActive && state.project.bullets?.length">
+              <li *ngFor="let b of state.project.bullets">{{ b }}</li>
+            </ul>
+
+            <div class="fc-links" *ngIf="state.isActive && (state.project.liveUrl || state.project.codeUrl)">
+              <a *ngIf="state.project.liveUrl" 
+              [href]="state.project.liveUrl"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn--live"
+              (click)="$event.stopPropagation()"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                Live Demo
+              </a>
+              <a *ngIf="state.project.codeUrl" 
+              [href]="state.project.codeUrl"
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn--code"
+                (click)="$event.stopPropagation()"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                View Code
+              </a>
             </div>
-          </div>
-
-          <div class="card">
-            <div class="box">
-              <i class="fas fa-chart-line"></i>
-              <div class="text">Music web Application</div>
-              <img src="assets/spotify.png" alt="">
-              <p>It is music playing website, So basically user needs to register himself first, After successful registration and login then only 
-                user can play, add song in favourite list or can create and delete playlist </p>
-                <p style="font-size: 14px;"><span class="tech">Technology Used :</span> HTML5, CSS3, Typescript, Angular</p>
-              <a href="https://github.com/Amanpan19/Music_WebApplication" >View Code</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="box">
-              <i class="fas fa-chart-line"></i>
-              <div class="text">CricTab</div>
-              <img src="assets/crictab.png" alt="">
-              <p>Introducing CricTab, your all-in-one cricket application designed for die-hard cricket enthusiasts and fans. Whether you're a cricket player,
-                 Simply a passionate follower of the game, CricTab is your go-to tool for staying updated with the latest cricket scores, stats, and insights. </p>
-                 <a href="https://amanpan19.github.io/CricTab/" >View Project</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                 <a href="https://github.com/Amanpan19/CricTab" >View Code</a>
-                </div>
-          </div>
-
-          <div class="card">
-            <div class="box">
-              <i class="fas fa-chart-line"></i>
-              <div class="text">Juke Box</div>
-              <p>Crafted a contemporary JukeBox that offers users an
-                immersive real-world music experience.</p>
-                <ol>
-                  <li>MySQL database is employed for seamless data storage.</li>
-                  <li>JDBC facilitates the Java-database interaction for robust connectivity.</li>
-                </ol>
-              
-              <p style="font-size: 14px;"><span  class="tech">Technology Used :</span>Java, Mysql</p>
-              <a href="https://github.com/Amanpan19/Juke-Box-Java-" >View Code</a>
-            </div>
-          </div>
-
-        <div class="card">
-          <div class="box">
-            <i class="fas fa-chart-line"></i>
-            <div class="text">Amphibious Vehicle (Mech Project)</div>
-            <p>It is a prototype that is capable of operating on both land 
-              and water. The vehicle is completely manually operated. 
-              It uses 4 medium-RPM DC motors with high torque and 2 DPDT 
-              switches, Both the switches are responsible to control the 
-              left and right wheels of the vehicle. And for propulsion in 
-              or on the water vehicle simply make do 
-              by spinning their wheels, which consist of fins like spokes.</p>
           </div>
         </div>
+
+      </div><!-- /stage -->
+    </div><!-- /stage-wrap -->
+
+    <!-- Nav -->
+    <div class="nav-row">
+      <button class="nav-btn" (click)="prev()" [disabled]="isFirst" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <!-- Dots -->
+      <div class="dots">
+        <button
+          *ngFor="let p of projects; let i = index"
+          class="dot"
+          [class.dot--active]="i === currentIndex"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Go to project ' + (i + 1)"
+        ></button>
       </div>
+
+      <button class="nav-btn" (click)="next()" [disabled]="isLast" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
     </div>
-  </section>
+
+    <p class="counter">{{ currentIndex + 1 }} / {{ projects.length }}</p>
+
   </div>
+</section>

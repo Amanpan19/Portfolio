@@ -1,184 +1,320 @@
-  /*Projects styling*/
+/* ── Tokens ─────────────────────────────────────────────────────────────────── */
+:host {
+  --bg:           linear-gradient(109.6deg, rgb(244, 138, 89) 32.4%, #f1862e 98.8%);
+  --card-bg:      #ffffff;
+  --card-shadow:  0 24px 80px rgba(0,0,0,0.7);
+  --accent:       #e6146a;
+  --accent-hover: #ff3882;
+  --text-dark:    #111318;
+  --muted-dark:   #555e72;
+  --badge-bg:     #f0f2f7;
+  --badge-text:   #444c63;
+  --font-display: 'Syne', 'Oswald', sans-serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+  --radius:       1.25rem;
+  --transition:   0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  @font-face{
-    font-family:font7;
-    src :url(../../assets/F25_Bank_Printer_Bold.ttf)
-  }
+/* ── Section ─────────────────────────────────────────────────────────────────── */
+section.project {
+  padding: 5rem 1rem 4rem;
+  background: var(--bg);
+  font-family: var(--font-body);
+  overflow: hidden;
+}
 
-  section {
-    padding: 20px 10px;
-  background-color: #080808;
-  }
+.max-width {
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-  section .title {
-    text-align: center;
-    position: relative;
-    font-size: 25px;
-    color: azure;
-    margin-bottom: 60px;
-    padding-bottom: 20px;
-  }
+/* ── Title ───────────────────────────────────────────────────────────────────── */
+.title {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.75rem;
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+.title::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 3.5rem; height: 3px;
+  background: var(--accent);
+  border-radius: 999px;
+}
+.title::after {
+  content: "HERE'S A GLIMPSE OF SOME EXCITING 🧑‍💻 PROJECTS I'VE DONE";
+  display: block;
+  font-family: var(--font-body);
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fefefe;
+  margin-top: 1.5rem;
+  letter-spacing: 0.01em;
+}
 
-  section .title::before {
-    content: "";
-    bottom: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    width: 70%;
-    height: 3px;
-    background: rgb(230, 20, 104);
+/* ── 3D Stage ────────────────────────────────────────────────────────────────── */
+.stage-wrap {
+  margin-top: 3rem;
+  perspective: 1100px;
+  perspective-origin: 50% 40%;
+}
 
-  }
+.stage {
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
 
-  section .title::after {
+/* ── Fan Card ────────────────────────────────────────────────────────────────── */
+.fan-card {
+  position: absolute;
+  width: 540px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform var(--transition), opacity var(--transition), box-shadow var(--transition);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  cursor: default;
+  user-select: none;
+}
 
-    bottom: -12px;
-    left: 50%;
-    position: absolute;
-    font-size: 20px;
-    padding: 0 10px;
+/* Side cards get pointer cursor to hint clickability */
+.fan-card:not(.fan-card--active) {
+  cursor: pointer;
+}
+.fan-card:not(.fan-card--active):hover {
+  opacity: 0.85 !important;
+}
 
-    transform: translateX(-50%);
-  }
+/* ── Card Image ──────────────────────────────────────────────────────────────── */
+.fc-image-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f4f5f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .project .pro-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+.fc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.5s ease;
+}
 
-  .project {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 35px;
-  }
+.fan-card--active .fc-img:hover {
+  transform: scale(1.04);
+}
 
-  .project {
-    color: rgb(9, 9, 9);
-    /* background:linear-gradient(to left, rgb(103, 110, 245),rgb(198, 37, 238)); */
-    background: white;
-  }
+.fc-no-img {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f5f8;
+  font-size: 3rem;
+  color: var(--accent);
+}
 
-  .text {
-    color: #080808;
-  }
+/* ── Card Body ───────────────────────────────────────────────────────────────── */
+.fc-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
 
-  .project .title::after {
-    content: "Discover My Creative Expertise";
-    background: #d42e2e;
-    border-radius: 7px;
-  }
+.fc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.625rem;
+}
 
-  .pro-content .card {
-    margin-bottom: 20px;
-  }
+.fc-tag {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
 
-  .project .pro-content .card {
+.fc-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-    width: calc(30% - 60px);
-    /* background: #222; */
-    background: #ffffff;
-    border: 1px solid rgb(220, 218, 218);
-    height: 670px;
-    text-align: center;
-    border-radius: 6px;
-    padding: 40px 25px;
-    cursor: pointer;
-    margin: 10px;
-    transition: all 0.4s ease;
-  }
+.fan-card--active .fc-title {
+  white-space: normal;
+}
 
-  img {
-    width: 98%;
-    height: 2%;
-    margin-top: 20px;
-    border-radius: 8px;
-    border: 1px solid #d8d6d6;
-    padding: 2px;
-  }
+.fc-desc {
+  font-size: 0.85rem;
+  color: var(--muted-dark);
+  line-height: 1.65;
+  margin: 0 0 0.875rem;
+}
 
-  .tech {
-    color: rgb(20, 110, 220);
-  }
+.fc-bullets {
+  font-size: 0.83rem;
+  color: var(--muted-dark);
+  line-height: 1.65;
+  padding-left: 1.1rem;
+  margin: 0 0 0.875rem;
+  li { margin-bottom: 0.2rem; }
+}
 
-  a {
-    color: crimson;
-  }
+/* ── Links ───────────────────────────────────────────────────────────────────── */
+.fc-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
 
-  .project .pro-content .card:hover {
-    background: linear-gradient(rgb(221, 168, 8), rgb(228, 224, 4));
-  }
-  
-  .project .pro-content .card:hover .text,
-  .project .pro-content .card:hover p,
-  .project .pro-content .card:hover ol {
-    color: white;
-  }
-  
-  .project .pro-content .card:hover .tech {
-    color: #f40950;
-  }
-  
- 
-  .project .pro-content .card .box {
-    transition: all 0.4s ease-in-out;
-  }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: 0.55rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
-  .project .pro-content .card:hover .box {
-    transform: scale(1.04);
-  }
-
-  .info{
-    color: black;
-  }
-
-  .project .pro-content .card:hover a {
-    color: rgb(255, 38, 0);
-  }
-
-  .project .pro-content .card i {
-    font-size: 50px;
-    color: crimson;
-    transition: color 0.3s ease;
-  }
-
-  .project .pro-content .card:hover i {
+  &--live {
+    background: var(--accent);
     color: #fff;
+    &:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(230,20,106,0.4); }
   }
 
-  .project .pro-content .card .text {
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 6px 0;
+  &--code {
+    background: transparent;
+    color: var(--text-dark);
+    border: 1.5px solid #dde0ea;
+    &:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  }
+}
 
+/* ── Nav Row ─────────────────────────────────────────────────────────────────── */
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.nav-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(230,20,106,0.4);
   }
 
-  @media(max-width:980px) {
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+}
 
-    .project .pro-content .card {
-      width: calc(45% - 40px)
-    }
+/* ── Dots ────────────────────────────────────────────────────────────────────── */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+
+  &--active {
+    width: 1.75rem;
+    background: var(--accent);
   }
 
-  @media (max-width:650px) {
-    .project {
-      line-height: 28px;
-    }
-
-    .project .pro-content .card {
-      width: auto;
-      height: auto;
-    }
+  &:hover:not(.dot--active) {
+    background: rgba(255,255,255,0.45);
   }
+}
 
-  @media (max-width:550px) {
+/* ── Counter ─────────────────────────────────────────────────────────────────── */
+.counter {
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  margin: 0.625rem 0 0;
+  font-weight: 600;
+}
 
-    p,
-    .text {
-      font-family: Arial, Helvetica, sans-serif;
-    }
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .stage { height: 460px; }
 
+  .fan-card { width: 280px; }
+
+  .fc-image-wrap { height: 160px; }
+
+  .title::after {
+    font-size: 1.7rem;
   }
+}
 
-  
+@media (max-width: 480px) {
+  .stage { height: 420px; }
+
+  .fan-card { width: 250px; }
+}
