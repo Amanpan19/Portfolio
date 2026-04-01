@@ -188,7 +188,10 @@ section.project {
   line-height: 1.65;
   padding-left: 1.1rem;
   margin: 0 0 0.875rem;
-  li { margin-bottom: 0.2rem; }
+}
+
+.fc-bullets li {
+  margin-bottom: 0.2rem;
 }
 
 /* ── Links ───────────────────────────────────────────────────────────────────── */
@@ -211,19 +214,31 @@ section.project {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
+}
 
-  &--live {
-    background: var(--accent);
-    color: #fff;
-    &:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(230,20,106,0.4); }
-  }
+/* live button */
+.btn--live {
+  background: var(--accent);
+  color: #fff;
+}
 
-  &--code {
-    background: transparent;
-    color: var(--text-dark);
-    border: 1.5px solid #dde0ea;
-    &:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-  }
+.btn--live:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(230,20,106,0.4);
+}
+
+/* code button */
+.btn--code {
+  background: transparent;
+  color: var(--text-dark);
+  border: 1.5px solid #dde0ea;
+}
+
+.btn--code:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 /* ── Nav Row ─────────────────────────────────────────────────────────────────── */
@@ -248,18 +263,20 @@ section.project {
   cursor: pointer;
   transition: all 0.22s ease;
   flex-shrink: 0;
+}
 
-  &:hover:not(:disabled) {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: scale(1.08);
-    box-shadow: 0 4px 14px rgba(230,20,106,0.4);
-  }
+/* hover when not disabled */
+.nav-btn:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(230,20,106,0.4);
+}
 
-  &:disabled {
-    opacity: 0.2;
-    cursor: not-allowed;
-  }
+/* disabled state */
+.nav-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 
 /* ── Dots ────────────────────────────────────────────────────────────────────── */
@@ -278,15 +295,17 @@ section.project {
   cursor: pointer;
   background: rgba(255,255,255,0.2);
   transition: all 0.3s ease;
+}
 
-  &--active {
-    width: 1.75rem;
-    background: var(--accent);
-  }
+/* active state */
+.dot--active {
+  width: 1.75rem;
+  background: var(--accent);
+}
 
-  &:hover:not(.dot--active) {
-    background: rgba(255,255,255,0.45);
-  }
+/* hover when NOT active */
+.dot:hover:not(.dot--active) {
+  background: rgba(255,255,255,0.45);
 }
 
 /* ── Counter ─────────────────────────────────────────────────────────────────── */
